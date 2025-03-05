@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Profile</title>
+    </head>
+    <body>
+        <form action="{{ url_for('profile') }}" method="POST">
+            <label for="name">Name</label>
+            <input type="text" name="name"><br>
+
+            <label for="companyname">Company Name</label>
+            <input type="text" name="companyname"><br>
+
+            <label for="job_title">Job</label>
+            <input type="text" name="job_title"><br>
+
+            <label for="location">Location</label>
+            <input type="text" name="location"><br>
+
+            <label for="keywords">Keywords</label>
+            <input type="text" name="keywords"><br>
+
+            <label for="limit">Limit</label>
+            <input type="Number" name="limit"><br>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if posts %}
+            <p>Data fetched</p>
+        {%else%}
+            <p>Data notfetched</p>
+        {%endif%}
+
+            <table border="1">
+                <tr>
+                    <th>Company</th>
+                    <th>Country</th>
+                </tr>
+                {% for post in posts %}
+                    <tr>
+                        <td>{{ post.company | default('NA') }}</td>
+                        <td>{{ post.country | default('NA') }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+    </body>
+</html>
