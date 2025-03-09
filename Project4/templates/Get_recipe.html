@@ -1,0 +1,39 @@
+<html>
+   <head>
+       <title>Get Recipe List</title>
+       <link rel="stylesheet" href="../static/styles.css">
+   </head>
+   <body>
+       <form action="{{url_for('get_recipe1')}}" method="POST">
+           <label for="cuisine">Enter cuisine</label>
+           <input type="text" name="cuisine">
+           <br>
+           <label for="mealtype">Meal type</label>
+           <input type="text" name="mealtype">
+           <br>
+           <button type="submit">submit<button>
+       </form>
+       {%if posts%}
+           <p>Result fetched</p>
+       {%else%}
+           <p>Result not fetched</p>
+       {%endif%}
+       <table border="1">
+           <tr>
+               <th>Title</th>
+               <th>Instructions</th>
+               <th>Nutrients</th>
+           </tr>
+           {%for post in posts%}
+           <tr>
+               <td>{{post.title|default('NA')}}</td>
+               <td>{{post.instructions|default('NA')}}</td>
+               <td>{{post.nutrition_info|default('NA')}}</td>
+           </tr>
+           {%endfor%}
+       </table>
+   </body>
+</html>
+
+
+  

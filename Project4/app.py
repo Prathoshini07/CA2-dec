@@ -7,7 +7,7 @@ app=Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route('/getFilter.html')
+@app.route('/tickers.html')
 def getTicker():
     url = "https://fresh-linkedin-profile-data.p.rapidapi.com/get-linkedin-profile-by-salesnavurl"
 
@@ -17,9 +17,6 @@ def getTicker():
         "x-rapidapi-key": "0744311d70mshf2a21dd15e4df85p10d75ejsn5eff9af59b2a",
         "x-rapidapi-host": "fresh-linkedin-profile-data.p.rapidapi.com"
     }
-
-    response = requests.get(url, headers=headers, params=querystring)
-
 
     response = requests.get(url, headers=headers, params=querystring)
     if response.status_code==200:
