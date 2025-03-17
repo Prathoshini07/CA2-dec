@@ -1,34 +1,32 @@
 <html>
-   <head>
-       <title>Get Recipe List</title>
-       <link rel="stylesheet" href="../static/styles.css">
-   </head>
-   <body>
-       {%if posts%}
-           <p>Result fetched</p>
-       {%else%}
-           <p>Result not fetched</p>
-       {%endif%}
-       <table border="1">
-           <tr>
-               <th>S.no</th>
-               <th>Recipe</th>
-               <th>Prep time</th>
-               <th> Image url</th>
-           </tr>
-           {%for post in posts%}
-           <tr>
-               <td>{{post.id|default('NA')}}</td>
-               <td>{{post.recipe|default('NA')}}</td>
-               <td>{{post.prep_time_in_minutes|default('NA')}}</td>
-               <td><a href="{{post.image|default('NA')}}">Image Url</a>
-           </tr>
-           {%endfor%}
-       </table>
-   </body>
+    <head>
+        <title>Get Recipe List</title>
+        <link rel="stylesheet" href="../static/styles.css">
+    </head>
+    <body>
+        {%if posts%}
+            <p>Result fetched</p>
+        {%else%}
+            <p>Result not fetched</p>
+        {%endif%}
+        <table border="1">
+            <tr>
+                <th>S.no</th>
+                <th>Recipe</th>
+                <th>Prep time</th>
+                <th> Image url</th>
+            </tr>
+            {%for post in posts%}
+            <tr>
+                <td>{{post.id|default('NA')}}</td>
+                <td>{{post.recipe|default('NA')}}</td>
+                <td>{{post.prep_time_in_minutes|default('NA')}}</td>
+                <td><a href="{{post.image|default('NA')}}">Image Url</a>
+            </tr>
+            {%endfor%}
+        </table>
+    </body>
 </html>
 
-
-  
-
+    
 
